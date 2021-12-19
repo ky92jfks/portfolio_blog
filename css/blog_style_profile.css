@@ -1,0 +1,197 @@
+@charset "UTF-8";
+/* プロフィールページ */
+
+/* @media (min-width: 960px) { */
+/* ページ全体の設定 */
+.profile {
+    grid-template-rows: 
+        [head nav] 100px 
+        [page_title] auto 
+        [author_information] auto 
+        [article_list] auto 
+        [foot] 140px
+    ;
+}
+
+/* page_title */
+.profile h1 {
+    grid-row: page_title;
+    grid-column: 2 / -2;
+    margin-top: -50px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #c8c8c8;
+    margin-bottom: 20px;
+}
+
+/* author_information */
+.profile .author_information {
+    margin-top: -80px;
+    grid-row: author_information;
+    grid-column: 2 / -2;
+}
+
+.profile .author_information article {
+    display: flex;
+}
+.profile .author_information article figure {
+    overflow: visible;
+    padding: 30px 60px;
+}
+.profile .author_information article figure img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.profile .author_information article div {
+    padding: 36px 60px 36px 0px;
+}
+.profile .author_information article div p {
+    display: block;
+}
+
+
+/* article_list */
+.profile .article_list {
+    grid-column: 2 / -2;
+    grid-row: article_list;
+}
+.profile .article_list {
+    display: grid;
+    grid-template-rows: 
+        [title] auto 
+        [article] auto 
+        [more] auto;
+}
+.profile .article_list h2 {
+    grid-row: title;
+    grid-column: 1 / -1;
+    font-size: 20px;
+    color: #6f6f6f;
+}
+.profile .article_list .article-wrap {
+    grid-row: article;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px 14px;
+    gap: 20px 14px;
+}
+.profile .article_list article {
+    grid-row: auto;
+}
+.profile .article_list article figure img {
+    height: 160px;
+}
+.profile .article_list article p {
+    margin-bottom: 0;
+}
+.profile .article_list article .tag {
+    position: static;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+.profile .article_list article time {
+    position: static;
+    -webkit-order: 1;
+    order: 1;
+}
+.profile .article_list article .link {
+    position: static;
+    margin-bottom: 0;
+    -webkit-order: 2;
+    order: 2;
+}
+.profile .article_list .category_name {
+    display: inline-block;
+}
+.profile .article_list .author-name {
+    display: none;
+}
+
+.profile .article_list .more {
+    grid-row: more;
+}
+
+/* } */
+
+/* ============ タブレッド 版の設定 ============ */
+@media (max-width: 1159px) {
+
+/* author_information */
+.profile .author_information article {
+    margin-bottom: 20px;
+}
+.profile .author_information article div p {
+    margin-bottom: 12px;
+}
+
+}
+
+
+/* ============ SP 版の設定 ============ */
+@media (max-width: 959px) {
+/* ページ全体の設定 : プロフィールページ */
+.profile {
+    grid-template-rows: 
+        [head] 80px 
+        [nav page_title] auto 
+        [author_information] auto 
+        [article_list] auto 
+        [foot] 100px;
+}
+.profile nav {
+    grid-row: head / span 3;;
+}
+
+/* page_title */
+.profile h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* author_information */
+.profile .author_information {
+    margin-top: 0;
+}
+.profile .author_information h3 {
+    text-decoration: none;
+}
+
+/* article_list */
+.profile .article_list .article-wrap {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+    gap: 20px;
+}
+.profile .article_list .category_name {
+    display: inline-block;
+}
+
+}
+
+
+/* ============ タブレッド・SP 版 プロフィール画像の設定 ============ */
+@media (max-width: 720px) {
+
+/* author_information */
+.profile .author_information article {
+    display: block;
+}
+.profile .author_information article figure {
+    text-align: center;
+    padding: 10%;
+}
+.profile .author_information article figure img {
+    width: 150px;
+    height: 150px;
+}
+.profile .author_information article div {
+    padding: 0 12% 10%;
+}
+
+
+}

@@ -1,0 +1,656 @@
+@charset "UTF-8";
+
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: #d8d8d8;
+    color: unset;
+}
+/* for Firefox */
+::-moz-selection {
+    background: #d8d8d8;
+    color: unset;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ページ全体の設定 */
+body {
+    display: grid;
+    grid-template-columns: 0.4fr repeat(6,1fr) 0.4fr;
+    grid-column-gap: 20px;
+    column-gap: 20px;
+    grid-template-rows: 
+        [head nav] 100px 
+        [new] auto 
+        [category] auto 
+        [foot] 140px;
+    grid-row-gap: 80px; /* row-gap非対応ブラウザ用 */
+    row-gap: 80px;
+    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+    letter-spacing: 1px;
+    background-color: #EBEBEB;
+}
+
+body > * {
+    grid-column: 2 / -2;
+}
+
+.tech {
+    color: #009DE6;
+}
+.design {
+    color: #F23681;
+}
+.direction {
+    color: #8BBE2E;
+}
+.ma {
+    color: #F8AA36;
+}
+
+/* header */
+/* ヘッダーの背景色 */
+body::before {
+    content: "";
+    background-color: #ffffff;
+    grid-column: 1 / -1;
+    grid-row: head;
+    z-index: 2; /* ヘッダーの重ね順を上にするため */
+}
+header {
+    grid-row: head;
+    justify-self: start;
+    align-self: center;
+    z-index: 2; /* ヘッダーの重ね順を上にするため */
+    font-size: 24px;
+    color: #272727;
+    font-weight: 500;
+}
+header a:hover {
+    color: #6f6f6f;
+}
+
+/* nav */
+nav {
+    grid-row: nav;
+    justify-self: end;
+    align-self: center;
+}
+nav ul {
+    display: -webkit-flex;
+    display:-ms-flexbox;
+    display: flex;
+    flex-direction: row;
+}
+nav ul li {
+    margin-right: 40px;
+}
+nav ul li:last-child {
+    display: block;
+    margin-right: 0;
+    width: 100%;
+}
+nav a {
+    font-size: 14px;
+    color: #272727;
+    font-weight: 400;
+}
+nav a i {
+    font-size: 18px;
+}
+nav a:hover {
+    color: #6f6f6f;
+}
+
+/*  */
+nav ul li:last-child::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+nav ul li:last-child i {
+    float: left;
+    line-height: 20px;
+    font-size: 18px;
+    color: #272727;
+    text-align: center;
+    margin-right: 8px;
+    z-index: 1;
+}
+.search-form {
+    float: left;
+    position: relative;
+}
+.search-form:before, .search-field {
+    width: 28px;
+    height: 20px;
+    margin: 0;
+}
+.search-field {
+    -webkit-appearance: none;
+    border-radius: 0;
+    opacity: 0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding-bottom: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+.search-field:focus {
+    position: static;
+    opacity: 1;
+    width: 100%;
+    cursor: text;
+    outline: none;
+    border: none;
+    background-color: unset;
+    border-bottom: solid 1px #6f6f6f;
+}
+.search-form input[type="submit"] {
+    display: none;
+}
+/*  */
+
+
+/* section */
+section {
+    display: grid;
+    grid-template-rows: 
+        [title] auto 
+        [article] auto 
+        [more] auto;
+    grid-gap: 20px 14px;
+    gap: 20px 14px;
+}
+
+/* new_topic */
+.new_topic {
+    margin-top: -60px;
+    grid-column: 2 / -2;
+    grid-row: new;
+    grid-template-columns: repeat(3,1fr);
+}
+
+article {
+    grid-row: article;
+    background-color: #ffffff;
+    border-right: solid 4px #c8c8c8;
+    border-bottom: solid 4px #c8c8c8;
+    position: relative; /* タグの位置を固定するため */
+}
+article a:hover p {
+    text-decoration: underline;
+}
+article figure {
+    overflow: hidden;
+}
+article figure img {
+    height: 216px;
+    object-fit: cover;
+    vertical-align: bottom;
+    transition: 0.8s all;
+}
+article a:hover figure img {
+    transform: scale(1.05);
+    transition: 0.8s all;
+}
+article .topic {
+    padding: 24px;
+}
+article h3 {
+    width: 100%;
+    /* box-orient 要素を垂直方向に指定 */
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    /* -webkit-line-clamp 表示行数指定 */
+    -webkit-line-clamp: 3;
+    /* overflow はみ出た要素を非表示 */
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: #272727;
+}
+article h3:hover {
+    color: inherit; /* マウスオーバーで各カテゴリーの色にする */
+}
+article p {
+    width: 100%;
+    /* box-orient 要素を垂直方向に指定 */
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    /* -webkit-line-clamp 表示行数指定 */
+    -webkit-line-clamp: 3;
+    /* overflow はみ出た要素を非表示 */
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6f6f6f;
+    margin-bottom: 12px;
+}
+article .tag {
+    padding: 24px;
+    padding-top: 0;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0;
+    color: #6f6f6f;
+    display: -webkit-flex;
+    display:-ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+article time {
+    display: inline-block;
+    margin-bottom: 8px;
+    position: absolute; /* タグの位置を固定 */
+    bottom: 16px;
+    right: 24px;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+}
+article .link {
+    position: absolute; /* タグの位置を固定 */
+    bottom: 16px;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+    margin-bottom: 8px;
+}
+article .link > * {
+    display: inline-block;
+    margin-right: 12px;
+}
+article .link i {
+    margin-right: 4px;
+}
+article .link a {
+    font-weight: bold;
+}
+article .link a:hover {
+    text-decoration: underline;
+}
+.more {
+    grid-row: more;
+    grid-column: 3;
+    justify-self: end;
+}
+.more a {
+    color: #6f6f6f;
+    border-bottom: solid 2px #6f6f6f;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 0 4px 8px 4px;
+}
+.more i {
+    margin-left: 32px;
+}
+.more a:hover {
+    filter: brightness(60%);
+}
+.no_contents {
+    background-color: #dddddd;
+    color: #c8c8c8;
+    font-size: 16px;
+    display: table;
+    height: 100%;
+    text-align: center;
+}
+.no_contents span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* CATEGORY h1 */
+.category_collect {
+    margin-top: -50px;
+}
+.category_collect h1 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #c8c8c8;
+    margin-bottom: 20px;
+}
+
+/* category_topic */
+.category_topic {
+    grid-row: category;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 40px;
+}
+.category_topic h2 {
+    grid-row: title;
+    font-size: 20px;
+}
+.category_topic h2 a {
+    color: #6f6f6f;
+}
+.category_topic h2 a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+.category_topic h2 i {
+    margin-right: 8px;
+}
+.category_topic article figure img {
+    height: 160px;
+}
+.category_topic article .tag {
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.category_topic .more {
+    grid-column: 4;
+}
+.category_topic .category_name {
+    display: none;
+}
+
+/* footer */
+footer {
+    grid-row: foot;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    color: #ffffff;
+}
+.footer_title {
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+.footer_title:hover {
+    text-decoration: underline;
+}
+.copyright {
+    font-size: 12px;
+}
+/* フッターの背景色 */
+body::after {
+    content: "";
+    background-color: #858585;
+    grid-column: 1 / -1;
+    grid-row: foot;
+    z-index: -1;
+}
+
+/* ============ タブレッド 版の設定 ============ */
+@media (max-width: 1159px) {
+
+/* new_topic */
+article figure img {
+    height: 160px;
+}
+article p {
+    margin-bottom: 64px;
+}
+article .tag {
+    display: -webkit-flex;
+    display:-ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+}
+article time {
+    position: static; /* タグの位置固定を解除 */
+    margin-bottom: 16px;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+}
+article .link {
+    position: static; /* タグの位置固定を解除 */
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+    margin-bottom: 0;
+}
+
+}
+
+/* ============ SP 版の設定 ============ */
+@media (max-width: 959px) {
+
+/* ページ全体の設定 (SP用追記) */
+body {
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 
+        [head] 80px 
+        [nav new] auto 
+        [category] auto 
+        [foot] 100px;
+    grid-gap: 20px; /* row-gap非対応ブラウザ用 */
+    gap: 20px;
+}
+
+/* button ナビボタン */
+#menubtn {
+    z-index: 2; /* ヘッダーの重ね順を上にするため */
+    display: block;
+    font-size: 32px;
+    padding: 22px;
+    color: #272727;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+#menubtn span {
+    display: none;
+}
+/* ボタンをクリックした際に囲まれるデフォルトの青い線を消す */
+#menubtn:focus {
+    outline: none;
+}
+
+/* nav */
+nav {
+    width: 100%;
+    background-color: #dfdfdf;
+    grid-column: 1 / -1;
+    /* grid-row: nav; */
+    grid-row: head / span 2;
+    /* margin-top: -20px; */
+    justify-self: start; /* SP用に位置を設定(初期値に戻す) */
+    align-self: start; /* SP用に位置を設定(初期値に戻す) */
+    position: relative;
+    z-index: 1; /* ナビの重ね順をヘッダーの次にするため */
+}
+/* ナビゲーションメニュー(縦並び) */
+#menu {
+    display: none;
+}
+nav ul {
+    padding: 20px; /* 全体のcolum-gapと同じ分の余白 */
+    flex-direction: column;
+}
+nav ul li {
+    margin-right: 0;
+}
+nav ul li:first-child {
+    margin-top: 80px;
+}
+nav ul li a {
+    display: block;
+    padding: 20px 8px;
+    font-size: 14px;
+}
+nav ul li a:hover {
+    background-color: #d8d8d8;
+}
+
+/* search */
+nav ul li:last-child div {
+    display: flex;
+    padding: 20px 8px;
+}
+nav ul li:last-child i {
+    line-height: 20px;
+    font-size: 18px;
+    color: #272727;
+    text-align: center;
+    margin-right: 8px;
+    z-index: 1;
+}
+.search-form {
+    width: 100%;
+}
+.search-field {
+    position: static;
+    -webkit-appearance: none;
+    border-radius: 0;
+    opacity: 1;
+    cursor: auto;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom: solid 1px #6f6f6f;
+    background-color: unset;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+/* section */
+section {
+    grid-template-columns: none;
+    display: -webkit-flex;
+    display:-ms-flexbox;
+    display: flex;
+    flex-direction: column;
+}
+
+/* new_topic */
+.new_topic {
+    margin-top: 0;
+    /* new_topic と category_topic 間の余白 */
+    margin-bottom: 80px;
+}
+
+article .topic {
+    padding: 20px;
+}
+article h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    text-decoration: underline;
+}
+article p {
+    margin-bottom: 52px;
+}
+article .tag {
+    padding: 20px;
+}
+article time {
+    margin-bottom: 16px;
+}
+article .link > * {
+    text-decoration: underline;
+}
+.more {
+    text-align: center;
+}
+.more a {
+    border-bottom: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 0;
+}
+.more a:hover {
+    text-decoration: underline;
+}
+.more i {
+    margin-left: 12px;
+}
+
+/* no_contents の非表示 */
+.no_contents {
+    display: none;
+}
+
+/* CATEGORY h1 */
+.category_collect {
+    margin-top: 0;
+}
+
+/* category_topic */
+.category_topic h2 a {
+    text-decoration: underline;
+}
+
+.footer_title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.footer_title a:hover {
+    text-decoration: underline;
+}
+
+}
+
+/* タブレッド・PCのナビボタンとメニューの表示 */
+@media (min-width: 960px) {
+body::before {
+    z-index: auto; /* ヘッダーの重ね順を初期値に戻す */
+}
+header {
+    z-index: auto; /* ヘッダーの重ね順を初期値に戻す */
+}
+#menubtn {
+    z-index: auto; /* ヘッダーの重ね順を初期値に戻す */
+    display: none; /* ナビボタンを非表示 */
+}
+#menu {
+    display: block !important; /* ナビメニューを常に表示(SPのdisplay:none;の影響を受けない) */
+}
+nav {
+    z-index: auto; /* ヘッダーの重ね順を初期値に戻す */
+}
+
+}

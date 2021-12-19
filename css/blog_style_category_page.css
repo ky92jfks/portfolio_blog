@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* 各カテゴリーページ */
+
+/* タブレッド・PC */
+@media (min-width: 960px) {
+
+/* category_topic */
+.page_category .category_collect {
+    margin-top: -40px;
+    grid-column: 2 / -2;
+}
+.page_category .category_topic {
+    display: grid;
+    grid-template-rows: 
+        [title] auto 
+        [article] auto 
+        [more] auto;
+}
+.page_category .category_topic h2 {
+    grid-row: title;
+    grid-column: 1 / -1;
+}
+.page_category .category_topic .article-wrap {
+    grid-row: article;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px 14px;
+    gap: 20px 14px;
+}
+.page_category .category_topic article {
+    grid-row: auto;
+}
+.page_category .category_topic article p {
+    margin-bottom: 0;
+}
+.page_category .category_topic article .tag {
+    position: static;
+}
+.page_category .category_topic article time {
+    position: static;
+    -webkit-order: 1;
+    order: 1;
+}
+.page_category .category_topic article .link {
+    position: static;
+    margin-bottom: 0;
+    -webkit-order: 2;
+    order: 2;
+}
+
+.page_category .category_topic .more {
+    grid-row: more;
+}
+
+}
+
+
+/* ============ SP 版の設定 ============ */
+@media (max-width: 959px) {
+
+/* category_topic */
+.page_category .category_topic .article-wrap {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+    gap: 20px;
+}
+.page_category .category_topic .category_name {
+    display: inline-block;
+}
+
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/blog_style_1.css">
+    <link rel="stylesheet" href="css/blog_style_profile.css">
+    <!-- jQueryの設定 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- jQuery コード -->
+    <script>
+    $(function() {
+        $("#menubtn").click(function() {
+            $("#menu").slideToggle();
+        });
+    });
+    </script>
+    <title>STAFF BLOG | PROFILE</title>
+</head>
+
+<body class="profile">
+
+<header>
+<a href="blog_top.html">STAFF BLOG</a>
+</header>
+
+<button class="nav_button" type="button" id="menubtn">
+    <i class="fas fa-bars"></i><span>MENU</span>
+</button>
+<nav class="menu" id="menu">
+    <ul>
+        <li><a href="blog_about.html">ABOUT</a></li>
+        <li><a href="blog_category.html">CATEGORY</a></li>
+        <li><a href="blog_contact.html">CONTACT</a></li>
+        <li>
+            <div>
+                <i class="fas fa-search"></i>
+                <form method="get" class="search-form" action="#" autocomplete="off">
+                    <input type="search" placeholder="SEARCH" value="" name="s" class="search-field">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<h1>PROFILE</h1>
+
+<!-- プロフィール欄 -->
+<div class="author_information">
+
+<article>
+    <figure>
+        <img src="img/brooke-cagle--uHVRvDr7pg-unsplash.jpg" alt="">
+    </figure>
+    <div class="">
+        <h3>佐藤</h3>
+        <p>Webデザイナー</p>
+        <p>2010年入社。ゲームアプリのデザイナーとして働いた後、Web制作の学校に入学、卒業。
+            数々の企業でWebデザイナーとして働いた後、入社。現在至る。
+            HP  http://xxxxxxxxxxxxxxx </p>
+    </div>
+</article>
+
+
+</div>
+
+<!-- カテゴリー別 -->
+
+<section class="article_list">
+    <h2>執筆した記事一覧</h2>
+    <div class="article-wrap">
+        <article>
+            <a href="blog_post.html">
+            <figure>
+                <img src="img/aleks_example.jpg" alt="">
+            </figure>
+            <div class="topic tech">
+                <h3>HTML 要素リファレンス</h3>
+                <p>このページでは、タグを使用して作成されるすべての HTML 要素を一覧表示しています。この一覧は、考えているものを見つけやすいように、機能別にグループ化しています。アルファベット順のすべての要素の一覧は、このページと同様に各要素ページのサイドバーにあります。</p>
+            </div>
+            </a>
+            <div class="tag">
+                <time datetime="2020-07-25">2020/07/25</time>
+                <span class="link">
+                    <span class="category_name tech">
+                        <a href="blog_category_page1.html"><i class="tech fas fa-code"></i>開発</a>
+                    </span>
+                    <span class="author-name">
+                        <a href="blog_profile.html"><i class="far fa-user"></i>佐藤</a>
+                    </span>
+                </span>
+            </div>
+        </article>
+        
+        <article>
+            <a href="blog_post.html">
+            <figure>
+                <img src="img/aleks_example.jpg" alt="">
+            </figure>
+            <div class="topic design">
+                <h3>HTML 要素リファレンス</h3>
+                <p>このページでは、タグを使用して作成されるすべての HTML 要素を一覧表示しています。この一覧は、考えているものを見つけやすいように、機能別にグループ化しています。アルファベット順のすべての要素の一覧は、このページと同様に各要素ページのサイドバーにあります。</p>
+            </div>
+            </a>
+            <div class="tag">
+                <time datetime="2020-07-25">2020/07/25</time>
+                <span class="link">
+                    <span class="category_name design">
+                        <a href="blog_category_page2.html"><i class="fas fa-swatchbook"></i>デザイン</a>
+                    </span>
+                    <span class="author-name">
+                        <a href="blog_profile.html"><i class="far fa-user"></i>佐藤</a>
+                    </span>
+                </span>
+            </div>
+        </article>
+        
+        
+        <article>
+            <a href="blog_post.html">
+            <figure>
+                <img src="img/aleks_example.jpg" alt="">
+            </figure>
+            <div class="topic direction">
+                <h3>HTML 要素リファレンス</h3>
+                <p>このページでは、タグを使用して作成されるすべての HTML 要素を一覧表示しています。この一覧は、考えているものを見つけやすいように、機能別にグループ化しています。アルファベット順のすべての要素の一覧は、このページと同様に各要素ページのサイドバーにあります。</p>
+            </div>
+            </a>
+            <div class="tag">
+                <time datetime="2020-07-25">2020/07/25</time>
+                <span class="link">
+                    <span class="category_name direction">
+                        <a href="blog_category_page3.html"><i class="direction far fa-compass"></i>ディレクション</a>
+                    </span>
+                    <span class="author-name">
+                        <a href="blog_profile.html"><i class="far fa-user"></i>佐藤</a>
+                    </span>
+                </span>
+            </div>
+        </article>
+        
+        <article>
+            <a href="blog_post.html">
+            <figure>
+                <img src="img/aleks_example.jpg" alt="">
+            </figure>
+            <div class="topic tech">
+                <h3>HTML 要素リファレンス</h3>
+                <p>このページでは、タグを使用して作成されるすべての HTML 要素を一覧表示しています。この一覧は、考えているものを見つけやすいように、機能別にグループ化しています。アルファベット順のすべての要素の一覧は、このページと同様に各要素ページのサイドバーにあります。</p>
+            </div>
+            </a>
+            <div class="tag">
+                <time datetime="2020-07-25">2020/07/25</time>
+                <span class="link">
+                    <span class="category_name tech">
+                        <a href="blog_category_page1.html"><i class="tech fas fa-code"></i>開発</a>
+                    </span>
+                    <span class="author-name">
+                        <a href="blog_profile.html"><i class="far fa-user"></i>佐藤</a>
+                    </span>
+                </span>
+            </div>
+        </article>
+        
+        <article>
+            <a href="blog_post.html">
+            <figure>
+                <img src="img/aleks_example.jpg" alt="">
+            </figure>
+            <div class="topic design">
+                <h3>HTML 要素リファレンス</h3>
+                <p>このページでは、タグを使用して作成されるすべての HTML 要素を一覧表示しています。この一覧は、考えているものを見つけやすいように、機能別にグループ化しています。アルファベット順のすべての要素の一覧は、このページと同様に各要素ページのサイドバーにあります。</p>
+            </div>
+            </a>
+            <div class="tag">
+                <time datetime="2020-07-25">2020/07/25</time>
+                <span class="link">
+                    <span class="category_name design">
+                        <a href="blog_category_page2.html"><i class="fas fa-swatchbook"></i>デザイン</a>
+                    </span>
+                    <span class="author-name">
+                        <a href="blog_profile.html"><i class="far fa-user"></i>佐藤</a>
+                    </span>
+                </span>
+            </div>
+        </article>
+        
+        
+        <article>
+            <a href="blog_post.html">
+            <figure>
+                <img src="img/aleks_example.jpg" alt="">
+            </figure>
+            <div class="topic direction">
+                <h3>HTML 要素リファレンス</h3>
+                <p>このページでは、タグを使用して作成されるすべての HTML 要素を一覧表示しています。この一覧は、考えているものを見つけやすいように、機能別にグループ化しています。アルファベット順のすべての要素の一覧は、このページと同様に各要素ページのサイドバーにあります。</p>
+            </div>
+            </a>
+            <div class="tag">
+                <time datetime="2020-07-25">2020/07/25</time>
+                <span class="link">
+                    <span class="category_name direction">
+                        <a href="blog_category_page3.html"><i class="direction far fa-compass"></i>ディレクション</a>
+                    </span>
+                    <span class="author-name">
+                        <a href="blog_profile.html"><i class="far fa-user"></i>佐藤</a>
+                    </span>
+                </span>
+            </div>
+        </article>
+        
+
+        <article class="no_contents">
+            <span>Comming Soon</span>
+        </article>
+        
+        <article class="no_contents">
+            <span>Comming Soon</span>
+        </article>
+        
+    </div>
+    
+</section>
+
+
+<footer>
+<p class="footer_title">
+    <a href="blog_top.html">STAFF BLOG</a>
+</p>
+<p class="copyright">© 2020 STAFF BLOG All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 総合カテゴリーページ */
+
+/* ページ全体の設定 */
+.category, .page_category {
+    grid-template-rows: 
+        [head nav] 100px 
+        [category_collect] auto 
+        [foot] 140px;
+}
+
+.category .category_collect, .page_category .category_collect {
+    grid-row: category_collect;
+}
+
+
+
+/* ============ SP 版の設定 ============ */
+@media (max-width: 959px) {
+
+/* ページ全体の設定 (SP用追記) */
+.category, .page_category {
+    grid-template-rows: 
+        [head] 80px 
+        [nav category_collect] auto 
+        [foot] 100px;
+}
+
+}
